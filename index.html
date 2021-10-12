@@ -1,62 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+    />
+  </head>
+  <body>
+    <section class="hero is-primary">
+      <div class="hero-body">
+        <p class="title">Nonprofit Career Planner</p>
+      </div>
+    </section>
 
-  <section class = "hero is-primary">
-    <div class="hero-body">
-      <p class="title">Nonprofit Career Planner</p>
-    </div>
-  </section>
-
-  <div class = "columns">
-    <div class = "column is-full">
-      <div class="box">
-        <label class="label">About</label>
-        <p>
-          Need help planning your career in the nonprofit sector? Enter a city name
-          below to find a list of nonprofits in your chosen area and the estimated costs
-          to rent an appartment there. 
-        </p>
+    <div class="columns">
+      <div class="column is-full">
+        <div class="box">
+          <label class="label">About</label>
+          <p>
+            Need help planning your career in the nonprofit sector? Enter a city
+            name below to find a list of nonprofits in your chosen area and the
+            estimated costs to rent an apartment there.
+          </p>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class = "columns">
-    <div class = "column is-one-third">
-      <form class="box">
-        <div class="field">
-          <label class="label">City</label>
-          <div class="control">
-            <input class="input" type="city" placeholder="Enter city name">
+    <div class="columns">
+      <div class="column is-one-third">
+        <form class="box">
+          <div class="field">
+            <label class="label">City</label>
+            <div class="control">
+              <input class="input" type="city" placeholder="Enter city name" />
+            </div>
           </div>
 
+          <button class="button is-primary">Search</button>
+        </form>
+
+        <div class="box">
+          <label class="label">Rent costs in [chosen city]</label>
         </div>
+      </div>
       
-        <button class="button is-primary">Search</button>
-      </form>          
-      <div class="box">
-            <label class="label">Rent costs in [chosen city]</label>
+      <div class="column">
+        <div id ="nonprofits" class="box">
+          <label class="label">Nonprofits in [chosen city]</label>
+        </div>
       </div>
-    </div> 
-    <div class = "column">
-      <div class="box">
-        <label class="label">Nonprofits in [chosen city]</label>
-      </div>
+
     </div>
-  </div>
-
-
-
-
-
-  <script src=“https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js”></script>
-  <script src="./assets/js/script.js"></script>
-</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+  </body>
 </html>

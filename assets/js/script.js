@@ -1,4 +1,4 @@
-var debugDiv = document.getElementById("debug");
+var $nonProfitsEl = document.getElementById("nonprofits");
 
 function getNonProfits(str) {
   var nonProfitURL =
@@ -10,10 +10,7 @@ function getNonProfits(str) {
     headers: {
       "accept": "application/json",
       "x-requested-with": "xmlhttprequest",
-      "Access-Control-Allow-Origin": "*",
-      // "Authorization": `Bearer ${apiKey}`
-      // 'Content-Type': 'application/json'
-      // 'Content-Type': 'application/x-www-form-urlencoded',
+      "Access-Control-Allow-Origin": "*"
     }
   }).then(function (response) {
     if (response.ok) {
@@ -24,11 +21,14 @@ function getNonProfits(str) {
   });
 }
 
-function getRents(str) {}
+function getRent(str) {}
 
 function displayNonProfits(data) {
   console.log(data);
   
+  for (var i = 0; i < data.length; i++) {
+    
+  }
   var orgNameEl = document.createElement("h2");
   var orgCityEl = document.createElement("h3");
   var orgStateEl = document.createElement("h3");
@@ -37,9 +37,9 @@ function displayNonProfits(data) {
   orgCityEl.textContent = data.organizations[0].city;
   orgStateEl.textContent = data.organizations[0].state;
 
-  debugDiv.appendChild(orgNameEl);
-  debugDiv.appendChild(orgCityEl);
-  debugDiv.appendChild(orgStateEl);
+  $nonProfitsEl.appendChild(orgNameEl);
+  $nonProfitsEl.appendChild(orgCityEl);
+  $nonProfitsEl.appendChild(orgStateEl);
 }
 
 getNonProfits("chicago");
