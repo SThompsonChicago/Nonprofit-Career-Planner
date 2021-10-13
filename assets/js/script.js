@@ -80,4 +80,14 @@ function displayNonProfits(data) {
   }
 }
 
+function init(){
+    var storedHistory = JSON.parse(localStorage.getItem("search-history"));
+    if (storedHistory !== null){
+        cities = storedHistory;
+    }
+    renderCityList();
+
+}
+
+init();
 $cityFormEl.addEventListener("submit", formSubmitHandler);
