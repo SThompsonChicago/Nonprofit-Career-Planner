@@ -4,6 +4,9 @@ var $citySearch = document.getElementById("city-search");
 var $modalEl = document.getElementById("myModal");
 var $closeSpan = document.getElementsByClassName("close")[0];
 var $modalText = document.getElementById("modal-text");
+var $searchHistoryEl = document.getElementById("search-history");
+
+var cities = [];
 
 var $modalBtn = document.getElementById("modalBtn");
 
@@ -18,8 +21,32 @@ function formSubmitHandler(event) {
   if (cityName === "") {
     openModal("Please enter a city name.");
   } else {
+    localStorage.setItem("search-history",JSON.stringify(cities));
+    renderCityList();
     getNonProfits(cityName);
   }
+}
+
+function buttonSearchHandler(event){
+    event.preventDefault();
+    var btn = event.target;
+    var city = btn.getAttribute("data-search");
+
+    getNonProfits(city);
+}
+
+function renderCityList () {
+    $searchHistoryEl.innerHTML = "";
+
+    for (var i = 0; i < cities.length; i++) {
+        var city = cities[i];
+    
+        var button = document.createElement("button");
+        button.setAttribute("type", "button");
+        button.setAttribute("data-search","city");
+        button.textContent = city;
+        $searchHistoryEl.appendChild(button);
+    }
 }
 
 function openModal(errorText) {
@@ -80,4 +107,15 @@ function displayNonProfits(data) {
   }
 }
 
+function init(){
+    var storedHistory = JSON.parse(localStorage.getItem("search-history"));
+    if (storedHistory !== null){
+        cities = storedHistory;
+    }
+    renderCityList();
+
+}
+
+init();
 $cityFormEl.addEventListener("submit", formSubmitHandler);
+$searchHistoryEl.addEventListener("click",buttonSearchHandler);
