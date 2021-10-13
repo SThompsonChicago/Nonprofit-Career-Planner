@@ -30,20 +30,26 @@
 
   <div class = "columns">
     <div class = "column is-one-third">
-      <form class="box">
+      <form id="city-form" class="box">
         <div class="field">
-          <label class="label">City</label>
+          <label for="city-text" class="label">City</label>
           <div class="control">
-            <input class="input" type="city" placeholder="Enter city name">
+            <input class="input" type="text" placeholder="Enter city name" name ="city-text" id="city-text">
           </div>
 
         </div>
       
         <button class="button is-primary">Search</button>
-      </form>          
+      </form>     
+
+      
       <div class="box">
             <label class="label">Rent costs in [chosen city]</label>
       </div>
+      <div class="box">
+        <label class="label">Past Searches</label>
+        <ul id="todo-list"><li>A</li></ul>
+  </div>
     </div> 
     <div class = "column">
       <div class="box">
