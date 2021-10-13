@@ -72,10 +72,10 @@ function getNonProfits(str) {
 
   fetch(corsWorkAroundURL, {
     headers: {
-      accept: "application/json",
+      "accept": "application/json",
       "x-requested-with": "xmlhttprequest",
-      "Access-Control-Allow-Origin": "*",
-    },
+      "Access-Control-Allow-Origin": "*"
+    }
   }).then(function (response) {
     if (response.ok) {
       response.json().then(function (data) {
@@ -88,7 +88,6 @@ function getNonProfits(str) {
 function getRent(str) {}
 
 function displayNonProfits(data) {
-  // console.log(data);
   $nonProfitsEl.innerHTML = "";
   for (var i = 0; i < data.organizations.length; i++) {
     var $resultsDiv = document.createElement("div");
