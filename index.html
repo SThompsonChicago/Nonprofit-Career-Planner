@@ -22,7 +22,7 @@
         <p>
           Need help planning your career in the nonprofit sector? Enter a city name
           below to find a list of nonprofits in your chosen area and the estimated costs
-          to rent an appartment there. 
+          to rent an apartment there. 
         </p>
       </div>
     </div>
@@ -30,33 +30,51 @@
 
   <div class = "columns">
     <div class = "column is-one-third">
-      <form class="box">
+      <form id="city-form" class="box">
         <div class="field">
-          <label class="label">City</label>
+          <label for="city-text" class="label">City</label>
           <div class="control">
-            <input class="input" type="city" placeholder="Enter city name">
+            <input id= "city-search" class="input" type="city" placeholder="Enter city name">
           </div>
 
+          <button class="button is-primary">Search</button>
+        </form>
+
+        <div class="box">
+          <label class="label">Rent costs in [chosen city]</label>
         </div>
       
         <button class="button is-primary">Search</button>
-      </form>          
+      </form>     
+
+      
       <div class="box">
             <label class="label">Rent costs in [chosen city]</label>
       </div>
+      <div class="box">
+        <label class="label">Past Searches</label>
+        <div id="search-history"></div>
+  </div>
     </div> 
     <div class = "column">
-      <div class="box">
+      <div id="nonprofits" class="box content">
         <label class="label">Nonprofits in [chosen city]</label>
       </div>
     </div>
   </div>
-  
 
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+    
+    <!-- Modal Content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p id="modal-text"></p>
+    </div>
 
+  </div>
 
-
-  <script src=“https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js”></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="./assets/js/script.js"></script>
 </main>
 </body>
