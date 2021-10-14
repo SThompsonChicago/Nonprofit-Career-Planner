@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,56 +9,73 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
   <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
+
 <body>
-  <section class = "hero is-primary">
-    <div class="hero-body">
-      <p class="title">Nonprofit Career Planner</p>
-    </div>
-  </section>
+  <main class="page-wrapper">
 
-  <div class = "columns">
-    <div class = "column is-full">
-      <div class="box">
-        <label class="label">About</label>
-        <p>
-          Need help planning your career in the nonprofit sector? Enter a city name
-          below to find a list of nonprofits in your chosen area and the estimated costs
-          to rent an appartment there. 
-        </p>
-      </div>
-    </div>
-  </div>
+      <section class = "hero is-primary">
+       <div class="hero-body">
+         <p class="title">Nonprofit Career Planner</p>
+       </div>
+     </section>
 
-  <div class = "columns">
-    <div class = "column is-one-third">
-      <form class="box">
-        <div class="field">
-          <label class="label">City</label>
-          <div class="control">
-            <input class="input" type="city" placeholder="Enter city name">
-          </div>
-
+     <div class = "box"> 
+       <section class="page-section" id="about">
+         <h3>About</h3>
+         <div>
+         <p>
+           Need help planning your career in the nonprofit sector? Enter a city name
+           below to find a list of nonprofits in your chosen area and the estimated costs
+           to rent an appartment there.
+         </p>
         </div>
+       </section>
+     </div>
+   
+   <div class = "columns">
+    <div class = "column is-one-third">
+      <form id="city-form" class="box">
+        <div class="field">
+          <label for="city-text" class="label">City</label>
+            <div class="control">
+              <input id= "city-search" class="input" type="city" placeholder="Enter city name">
+            </div>
+            <button class="button is-link">Search</button> 
+          </form>
+      </form>     
+    </div>
+
       
-        <button class="button is-primary">Search</button>
-      </form>          
-      <div class="box">
-            <label class="label">Rent costs in [chosen city]</label>
-      </div>
-    </div> 
+    <div class="box">
+      <label class="label">Rent costs in [chosen city]</label>
+    </div>
+    <div class="box">
+      <label class="label">Past Searches</label>
+    <div id="search-history"></div>
+   </div>
+   </div> 
     <div class = "column">
-      <div class="box">
+      <div id="nonprofits" class="box content">
         <label class="label">Nonprofits in [chosen city]</label>
       </div>
     </div>
-  </div>
-  
+   </div>
 
+   <!-- The Modal -->
+   <div id="myModal" class="modal">
+    
+    <!-- Modal Content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p id="modal-text"></p>
+    </div>
 
-
-
-  <script src=“https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js”></script>
-  <script src="./assets/js/script.js"></script>
-</main>
+   </div>
+   <footer>
+   <span>Thanks for visiting!</span>
+  </footer>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <script src="./assets/js/script.js"></script>
+ </main>
 </body>
 </html>
