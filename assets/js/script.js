@@ -1,15 +1,12 @@
 var $nonProfitsEl = document.getElementById("nonprofits");
 var $cityFormEl = document.getElementById("city-form");
 var $citySearch = document.getElementById("city-search");
-var $modalEl = document.getElementById("myModal");
-var $closeSpan = document.getElementsByClassName("close")[0];
-var $modalText = document.getElementById("modal-text");
 var $searchHistoryEl = document.getElementById("search-history");
+var $modalEl = document.getElementById("myModal");
+var $modalText = document.getElementById("modal-text");
+var $closeSpan = document.getElementsByClassName("close")[0];
 
 var cities = [];
-
-var $modalBtn = document.getElementById("modalBtn");
-
 
 function formSubmitHandler(event) {
   event.preventDefault();
@@ -20,33 +17,45 @@ function formSubmitHandler(event) {
 
   if (cityName === "") {
     openModal("Please enter a city name.");
+    return;
   } else {
-    localStorage.setItem("search-history",JSON.stringify(cities));
+    cityName = capFirstLetter(cityName);
+
+    if (cities.indexOf(cityName) === -1) {
+      cities.push(cityName);
+    }
+
+    localStorage.setItem("city-history", JSON.stringify(cities));
     renderCityList();
     getNonProfits(cityName);
   }
 }
 
-function buttonSearchHandler(event){
-    event.preventDefault();
-    var btn = event.target;
-    var city = btn.getAttribute("data-search");
+function buttonSearchHandler(event) {
+  event.preventDefault();
+  var btn = event.target;
+  var city = btn.getAttribute("data-search");
 
-    getNonProfits(city);
+  getNonProfits(city);
 }
 
-function renderCityList () {
-    $searchHistoryEl.innerHTML = "";
+function renderCityList() {
+  $searchHistoryEl.innerHTML = "";
 
-    for (var i = 0; i < cities.length; i++) {
-        var city = cities[i];
-    
-        var button = document.createElement("button");
-        button.setAttribute("type", "button");
-        button.setAttribute("data-search","city");
-        button.textContent = city;
-        $searchHistoryEl.appendChild(button);
-    }
+  for (var i = 0; i < cities.length; i++) {
+    var city = cities[i];
+    var button = document.createElement("button");
+
+    button.setAttribute("data-search", city);
+    button.textContent = city;
+
+    button.classList.add("button");
+    button.classList.add("is-link");
+    button.classList.add("column");
+    button.classList.add("is-fullwidth");
+
+    $searchHistoryEl.appendChild(button);
+  }
 }
 
 function openModal(errorText) {
@@ -54,15 +63,15 @@ function openModal(errorText) {
   $modalEl.style.display = "block";
 }
 
-$closeSpan.onclick = function() {
+$closeSpan.onclick = function () {
   $modalEl.style.display = "none";
-}
+};
 
-window.onclick = function(event) {
+window.onclick = function (event) {
   if (event.target == $modalEl) {
     $modalEl.style.display = "none";
   }
-}
+};
 
 function getNonProfits(str) {
   var nonProfitURL =
@@ -72,10 +81,10 @@ function getNonProfits(str) {
 
   fetch(corsWorkAroundURL, {
     headers: {
-      "accept": "application/json",
+      accept: "application/json",
       "x-requested-with": "xmlhttprequest",
-      "Access-Control-Allow-Origin": "*"
-    }
+      "Access-Control-Allow-Origin": "*",
+    },
   }).then(function (response) {
     if (response.ok) {
       response.json().then(function (data) {
@@ -95,7 +104,8 @@ function displayNonProfits(data) {
     var $orgCityAndStateEl = document.createElement("h3");
 
     $orgNameEl.textContent = data.organizations[i].name;
-    $orgCityAndStateEl.textContent = data.organizations[i].city + ", " + data.organizations[i].state;
+    $orgCityAndStateEl.textContent =
+      data.organizations[i].city + ", " + data.organizations[i].state;
 
     $resultsDiv.classList.add("box");
     $resultsDiv.classList.add("content");
@@ -106,15 +116,24 @@ function displayNonProfits(data) {
   }
 }
 
-function init(){
-    var storedHistory = JSON.parse(localStorage.getItem("search-history"));
-    if (storedHistory !== null){
-        cities = storedHistory;
-    }
-    renderCityList();
+// Helper function to capitalize the first letter of each word
+function capFirstLetter(str) {
+  var words = str.split(" ");
+  for (var i = 0; i < words.length; i++) {
+    var j = words[i].charAt(0).toUpperCase();
+    words[i] = j + words[i].substr(1);
+  }
+  return words.join(" ");
+}
 
+function init() {
+  var storedHistory = JSON.parse(localStorage.getItem("city-history"));
+  if (storedHistory !== null) {
+    cities = storedHistory;
+  }
+  renderCityList();
 }
 
 init();
 $cityFormEl.addEventListener("submit", formSubmitHandler);
-$searchHistoryEl.addEventListener("click",buttonSearchHandler);
+$searchHistoryEl.addEventListener("click", buttonSearchHandler);
