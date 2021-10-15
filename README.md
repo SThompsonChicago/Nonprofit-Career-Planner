@@ -18,4 +18,4 @@ See live application [here](https://sthompsonchicago.github.io/Nonprofit-Career-
 - [x] API Realty Mole Rental Estimate API
 
 
-![alt text](assets/image/1.png)
+![search bar, results on the right and information on the left](../assets/demo/screenshot.png)
