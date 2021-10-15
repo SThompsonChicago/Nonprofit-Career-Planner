@@ -41,7 +41,7 @@
               <div class="control">
                 <input
                   id="city-search"
-                  class="input"
+                  class="input is-link"
                   type="city"
                   placeholder="Enter city name"
                 />
@@ -49,19 +49,36 @@
               <button class="button is-link column is-fullwidth">Search</button>
             </div>
             <div class="box">
-              <label class="label">Past Searches</label>
               <div id="search-history"></div>
             </div>
           </form>
 
           <div id="rent" class="box">
-            <label class="label">Rent costs in [chosen city]</label>
+            <label class="label">
+              Enter a city to see rent costs in that city
+            </label>
+          </div>
+
+          <div class="column">
+            <form id="bedrooms-select" class="box">
+              <label for="bedrooms">How many bedrooms:</label>
+              <select name="bedrooms" id="bedrooms">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+              <input type="submit" value="Submit" class="button is-link" />
+            </form>
           </div>
         </div>
 
         <div class="column is-two-thirds">
           <div id="nonprofits" class="box content">
-            <label class="label">Nonprofits in [chosen city]</label>
+            <label class="label"
+              >Enter a city to see Nonprofits in that city</label
+            >
           </div>
         </div>
       </div>
@@ -74,6 +91,7 @@
           <p id="modal-text"></p>
         </div>
       </div>
+
       <footer>
         <span>Thanks for visiting!</span>
       </footer>
