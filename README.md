@@ -1,4 +1,4 @@
-# Project-1
+# Nonprofit-Career-Planner
 
 ## User Story
 
@@ -8,10 +8,14 @@ As a person looking to begin a career in the non-profit sector, I would like to 
 See live application [here](https://sthompsonchicago.github.io/Nonprofit-Career-Planner/)
 
 ## Built With : 
-- [x] HTML
-- [x] CSS
-- [x] JavaScript
-- [x] ProPublica Nonprofit Explorer API
-- [x] Google Search API.
 
-![alt text]()
+- [x] Vanilla JavaScript
+
+- [x] Bulma CSS framework
+
+- [x] ProPublica Nonprofit Explorer
+
+- [x] API Realty Mole Rental Estimate API
+
+
+![alt text](assets/image/1.png)
