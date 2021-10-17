@@ -43,8 +43,6 @@ function searchFormSubmitHandler(event) {
 function bedroomFormSubmitHandler(event) {
   event.preventDefault();
   var numOfBedrooms = $bedroomSelection.value;
-  console.log(numOfBedrooms);
-  console.log(currentCity);
   getLatAndLon(currentCity, numOfBedrooms);
 }
 
@@ -150,7 +148,6 @@ function displayNonProfits(str, data) {
   $nonProfitsLabel.textContent = "Non-Profits in " + str;
   $nonProfitsLabel.classList.add("label");
   $nonProfitsEl.appendChild($nonProfitsLabel);
-  console.log(str.toUpperCase());
   for (var i = 0; i < data.organizations.length; i++) {
     if (data.organizations[i].city === str.toUpperCase()) {
       var $resultsDiv = document.createElement("div");
@@ -180,7 +177,6 @@ function displayNonProfits(str, data) {
 function displayRentInfo(city, data) {
   $rentDiv.innerHTML = "";
 
-  // var $rentResultDiv = document.createElement("div");
   var $rentLabel = document.createElement("label");
   var $aveRent = document.createElement("p");
   var $highRent = document.createElement("p");
@@ -189,8 +185,6 @@ function displayRentInfo(city, data) {
   $rentLabel.textContent = "Rent costs in " + city;
   $rentLabel.classList.add("label");
   $rentDiv.appendChild($rentLabel);
-  // $rentDiv.appendChild($rentResultDiv);
-  // $rentResultDiv.appendChild($rentLabel);
 
   $aveRent.textContent = "Average Rent: $" + data.rent;
   $highRent.textContent = "High End Rent: $" + data.rentRangeHigh;
@@ -199,9 +193,6 @@ function displayRentInfo(city, data) {
   $rentDiv.appendChild($aveRent);
   $rentDiv.appendChild($lowRent);
   $rentDiv.appendChild($highRent);
-  // $rentResultDiv.appendChild($aveRent);
-  // $rentResultDiv.appendChild($lowRent);
-  // $rentResultDiv.appendChild($highRent);
 
   $bedroomSelectForm.style.display = "block";
 }

@@ -101,13 +101,6 @@ a {
   margin-bottom: 1.5rem;
 }
 
-.column.is-two-thirds > div {
-  overflow-y: scroll;
-  scroll-behavior: smooth;
-  width: 710px;
-  height: 765px;
-}
-
 /* The Modal */
 .modal {
   display: none;
